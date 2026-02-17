@@ -1,0 +1,132 @@
+// VPI Society Management System - Prisma Schema
+// Platform: NextJS, PostgreSQL, Vercel
+// Designed for horizontal scalability
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Blocks table - 3 blocks: Mist, Breeze, Dew
+model Block {
+  id          Int      @id @default(autoincrement())
+  description String   @db.VarChar(100)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  units       Unit[]
+  
+  @@map("blocks")
+}
+
+// Individuals table - owners and residents
+model Individual {
+  id        Int      @id @default(autoincrement())
+  fName     String   @db.VarChar(50)
+  mName     String?  @db.VarChar(50)
+  sName     String   @db.VarChar(50)
+  eMail     String   @unique @db.VarChar(100)
+  mobile    BigInt   @db.BigInt // 10 digits
+  gender    String   @db.Char(1) // 'M' or 'F'
+  altMobile BigInt?  @db.BigInt // 10 digits optional
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relations
+  ownedUnits    UnitOwner[]
+  residedUnits  UnitResident[]
+  
+  @@index([eMail])
+  @@index([mobile])
+  @@map("individuals")
+}
+
+// Units table - flats in each block
+model Unit {
+  id          Int      @id @default(autoincrement())
+  description String   @db.VarChar(100)
+  blockId     Int
+  sqFt        Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  block         Block           @relation(fields: [blockId], references: [id])
+  contributions Contribution[]
+  owners        UnitOwner[]
+  residents     UnitResident[]
+  
+  @@index([blockId])
+  @@map("units")
+}
+
+// Contributions table - monthly contributions from units
+model Contribution {
+  id                  Int      @id @default(autoincrement())
+  unitId              Int
+  transactionId       String   @unique @db.VarChar(100)
+  transactionDateTime DateTime
+  fromMonth           Int      // 1-12
+  fromYear            Int      // e.g., 2026
+  toMonth             Int      // 1-12
+  toYear              Int      // e.g., 2026
+  amt                 Decimal  @db.Decimal(10, 2)
+  depositedBy         String   @db.VarChar(100)
+  depositorMobile     BigInt   @db.BigInt
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  
+  // Relations
+  unit Unit @relation(fields: [unitId], references: [id])
+  
+  @@index([unitId])
+  @@index([transactionId])
+  @@index([fromYear, fromMonth])
+  @@index([toYear, toMonth])
+  @@map("contributions")
+}
+
+// UnitOwners table - tracks ownership history
+model UnitOwner {
+  id        Int       @id @default(autoincrement())
+  unitId    Int
+  indId     Int
+  fromDt    DateTime
+  toDt      DateTime? // null means current owner
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  
+  // Relations
+  unit       Unit       @relation(fields: [unitId], references: [id])
+  individual Individual @relation(fields: [indId], references: [id])
+  
+  @@index([unitId])
+  @@index([indId])
+  @@index([fromDt])
+  @@map("unit_owners")
+}
+
+// UnitResidents table - tracks residence history
+model UnitResident {
+  id        Int       @id @default(autoincrement())
+  unitId    Int
+  indId     Int
+  fromDt    DateTime
+  toDt      DateTime? // null means current resident
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  
+  // Relations
+  unit       Unit       @relation(fields: [unitId], references: [id])
+  individual Individual @relation(fields: [indId], references: [id])
+  
+  @@index([unitId])
+  @@index([indId])
+  @@index([fromDt])
+  @@map("unit_residents")
+}
