@@ -1,0 +1,92 @@
+ 
+// The app to be developed is for managing a society called 'Vasundhra Palm Island' or VPI
+// there are 3 Blocks - 'Mist', 'Breeze', and 'Dew'
+// each block has around 100 flats (called 'Units')
+// Management of the society involves - maintenance, upkeep, organising events, security, safety etc
+// the society gets contributions (unitContributions) from each unit every month for managing the society
+// There are individuals who own, reside, or both (when a owner is residing)
+// unit residents may change with time
+// owners may change with time
+// To start with I am considering only 'management of contributions'.
+// We will build: on-line payment (of contribution amount), publication of payment status at the end of first week every month
+// other aspects such as maintenance (complaint management), security, safety, upkeep, and organising events will be considered later
+// tables and relations are described as under
+Tables and Fields
+
+Table: Blocks
+Field Name		Type
+ID			number
+description		string
+	
+Table: Individuals	
+Field Name		Type
+ID			number
+fName			string
+mName			string
+sName			string
+eMail			string
+mobile			number
+gender			string ('M' or 'F')
+altMobile		number (10 digits only)
+	
+Table: Units	
+Field Name		Type
+ID			number
+description		string
+blockId			number
+sqFt			number
+	
+Table: Contributions	
+Field Name		Type
+ID			number
+unitId			number
+transactionId		string
+transactionDateTime	DateTime
+fromMonth		number
+fromYear		number
+toMonth			number
+toYear			number
+amt			Currency
+depositedBy		string
+depositorMobile		number
+	
+Table: unitOwners	
+Field Name		Type
+ID			number
+unitId			number
+indId			number
+fromDt			DateTime
+	
+Table: unitResidents	
+Field Name		Type
+ID			number
+unitId			number
+indId			number
+fromDt			DateTime
+
+
+Relationships
+
+Tables			blocks		units
+Related Fields		ID		blockId
+		
+Tables			individuals	unitOwners
+Related Fields		ID		indId
+		
+Tables			individuals	unitResidents
+Related Fields		ID		indId
+		
+Tables			units		unitContributions
+Related Fields		ID		unitId
+		
+Tables			units		unitOwners
+Related Fields		ID		unitId
+		
+Tables			units		unitResidents
+Related Fields		ID		unitId
+
+// Platform: NextJS, PostgreSQL, Vercel, zod, O-Auth, shadcn/ui, TanStack Query, React-PDF
+// let us build the project in the folder 'vpi' under 'next' folder
+// name of the app: 'VPI Society Management System'
+// Please the schema as per tables and relationship
+// The app needs to be horizontally scalable

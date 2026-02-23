@@ -1,0 +1,223 @@
+{
+  "main": {
+    "id": "4299e4a5d01517d2",
+    "type": "split",
+    "children": [
+      {
+        "id": "8824897ca756a510",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b8ddfd19b75e6148",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3fd0135446615209",
+    "type": "split",
+    "children": [
+      {
+        "id": "9bfb7632f4f4eb53",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bc6a6a9338ce3d36",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "fe4ccc1a276c5409",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "8ad2229896c94807",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 310.5
+  },
+  "right": {
+    "id": "c0cf474215197740",
+    "type": "split",
+    "children": [
+      {
+        "id": "e0abfa4c6100eb80",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "061bacd9cd82503b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Excalidraw/Dashboard.excalidraw",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Dashboard"
+            }
+          },
+          {
+            "id": "bffac21cc5af84e7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Excalidraw/Dashboard.excalidraw",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Dashboard"
+            }
+          },
+          {
+            "id": "4156391044fa7f29",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "6013b62b13ee1e2a",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "a95595ca716f0f65",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Excalidraw/Dashboard.excalidraw",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Dashboard"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 450.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-excalidraw-plugin:New drawing": false
+    }
+  },
+  "active": "b8ddfd19b75e6148",
+  "lastOpenFiles": [
+    "xxx.txt",
+    "06-Notes/Backlog.md",
+    "06-Notes/Ideas.md",
+    "06-Notes/Meeting-Notes.md",
+    "05-Prompts/Documentation-Prompts.md",
+    "05-Prompts/Refactoring-Prompts.md",
+    "05-Prompts/Code-Generation-Prompts.md",
+    "05-Prompts/Architecture-Prompts.md",
+    "04-Workflows/Testing-Strategy.md",
+    "04-Workflows/Release-Process.md",
+    "04-Workflows/Development-Checklist.md",
+    "04-Workflows/Copilot-Workflow.md",
+    "03-Implementation/UI-Components.md",
+    "03-Implementation/Server-Actions.md",
+    "03-Implementation/Prisma-Schema.md",
+    "02-Architecture/Excalidraw/Flow-Brainstorm.excalidraw",
+    "02-Architecture/Excalidraw/Architecture-Whiteboard.excalidraw",
+    "02-Architecture/Excalidraw/UI-Sketches.excalidraw",
+    "02-Architecture/High-Level/Deployment-View.md",
+    "02-Architecture/High-Level/Module-Boundaries.md",
+    "02-Architecture/High-Level/System-Context.mermaid.md",
+    "01-Domain/Use-Cases.md",
+    "01-Domain/Entities.md",
+    "01-Domain/Domain-Rules.md",
+    "01-Domain/ERD/Ownership-Residency-Flows.mermaid.md",
+    "00-Index/VPI.md",
+    "00-Index/System-Overview.md",
+    "00-Index/Glossary.md",
+    "00-Index/README.md",
+    "03-Implementation/Conventions",
+    "03-Implementation/API",
+    "03-Implementation/Zod/Individuals.zod.ts",
+    "03-Implementation/Zod",
+    "Excalidraw/Dashboard.excalidraw",
+    "Untitled.base",
+    "02-Architecture/Flowcharts",
+    "newNote.canvas"
+  ]
+}
